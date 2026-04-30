@@ -6,7 +6,12 @@
       "WebFetch(domain:tinytapeout.com)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(yosys -p \"read_verilog tt_um_vpu.v; synth -top tt_um_vpu; stat\")",
+      "Bash(iverilog -o tb tt_um_vpu.v tb.sv)",
+      "Bash(docker --version)",
+      "Bash(docker run *)",
+      "Bash(where yosys *)"
     ]
   }
 }
