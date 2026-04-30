@@ -15,8 +15,6 @@ module tb_vpu;
 	wire [7:0] uio_out;
 	wire [7:0] uio_oe;
 	reg ena;
-	wire VGND;
-	wire VDPWR;
 
 	// Opcode definitions (must match module)
 	localparam OP_NOP = 4'd0;
@@ -30,8 +28,6 @@ module tb_vpu;
 
 	// Instantiate DUT
 	tt_um_vpu dut (
-		.VGND(VGND),
-		.VDPWR(VDPWR),
 		.ui_in(ui_in),
 		.uo_out(uo_out),
 		.uio_in(uio_in),
@@ -41,10 +37,6 @@ module tb_vpu;
 		.clk(clk),
 		.rst_n(rst_n)
 	);
-
-	// Power and ground assignments for simulation
-	assign VGND = 1'b0;
-	assign VDPWR = 1'b1;
 
 	// Clock generation
 	initial begin
