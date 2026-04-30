@@ -10,10 +10,6 @@ project:
   # How many tiles your design occupies?
   tiles: "1x1"
 
-  # How many analog pins does your project use?
-  analog_pins: 0
-  uses_3v3: false
-
   # Your top module name must start with "tt_um_".
   top_module:  "tt_um_vpu"
 
