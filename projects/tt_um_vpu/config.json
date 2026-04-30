@@ -25,7 +25,7 @@
 
   "pdk::sky130A": {
     "DIE_AREA": [0, 0, 161.0, 111.52],
-    "FP_DEF_TEMPLATE": "ref:$DESIGN_DIR/tech/sky130A/def/tt_block_1x1_pg.def",
+    "FP_DEF_TEMPLATE": "dir::tech/sky130A/def/tt_block_1x1_pg.def",
     "RT_MAX_LAYER": "met4"
   }
 }
