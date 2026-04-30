@@ -16,7 +16,8 @@
 // ============================================================
 
 module tt_um_vpu (
-	input  wire       VGND,		// Ground
+	inout  wire       VGND,		// Ground
+	inout  wire       VDPWR,	// Power
 	input  wire [7:0] ui_in,		// [3:0]=opcode, [5:4]=reg_a, [7:6]=reg_b
 	output wire [7:0] uo_out,	// ALU result output
 	input  wire [7:0] uio_in,	// Bidirectional input
@@ -24,7 +25,8 @@ module tt_um_vpu (
 	output wire [7:0] uio_oe,	// Bidirectional output enable
 	input  wire       ena,		// Chip enable
 	input  wire       clk,		// Clock
-	input  wire       rst_n	// Reset (active low)
+	input  wire       rst_n,	// Reset (active low)
+	inout  wire [7:0] ua		// Analog pins
 );
 
 	// ============================================================
@@ -166,5 +168,6 @@ module tt_um_vpu (
 	assign uo_out     = alu_result;			// Always show ALU result
 	assign uio_out    = uio_oe_reg ? uio_out_reg : 8'b0;
 	assign uio_oe     = {8{uio_oe_reg}};		// All bits share OE
+	assign ua         = 8'bz;				// Analog pins high-impedance
 
 endmodule
