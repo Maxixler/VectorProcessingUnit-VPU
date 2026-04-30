@@ -16,8 +16,8 @@
 // ============================================================
 
 module tt_um_vpu (
-	input  wire       VGND,		// Ground
-	input  wire       VDPWR,		// Power
+	inout  wire       VGND,		// Ground
+	inout  wire       VDPWR,		// Power
 	input  wire [7:0] ui_in,		// [3:0]=opcode, [5:4]=reg_a, [7:6]=reg_b
 	output wire [7:0] uo_out,	// ALU result output
 	input  wire [7:0] uio_in,	// Bidirectional input
