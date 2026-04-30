@@ -17,7 +17,6 @@ module tb_vpu;
 	reg ena;
 	wire VGND;
 	wire VDPWR;
-	wire [7:0] ua;
 
 	// Opcode definitions (must match module)
 	localparam OP_NOP = 4'd0;
@@ -40,8 +39,7 @@ module tb_vpu;
 		.uio_oe(uio_oe),
 		.ena(ena),
 		.clk(clk),
-		.rst_n(rst_n),
-		.ua(ua)
+		.rst_n(rst_n)
 	);
 
 	// Power and ground assignments for simulation
