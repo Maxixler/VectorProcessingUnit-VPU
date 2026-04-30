@@ -1,0 +1,33 @@
+System Definition: A synthesizable Micro-SIMD General Purpose Vector Processing Unit (VPU) targeting the Tiny Tapeout (Open Source Silicon) platform.
+Role Definition: Expert ASIC/VLSI Design Engineer.
+
+Target Platform Constraints (Tiny Tapeout 1x1 Tile):
+- Logic Area Budget: Maximum 1000 standard cells (roughly 4000-8000 transistors).
+- Physical I/O Pins (Strictly limited to 24 data pins):
+  * 8 Dedicated Input Pins (ui_in[7:0])
+  * 8 Dedicated Output Pins (uo_out[7:0])
+  * 8 Bidirectional Pins (uio_in[7:0], uio_out[7:0], uio_oe[7:0])
+- Clock & Reset: clk, rst_n (active low).
+
+Application Context:
+A pure, general-purpose Micro-SIMD Vector Processing Unit. The goal is to prove the concept of vectorized operations (SIMD) within an extremely constrained silicon area. The architecture should be entirely focused on general math and logic vector operations without any domain-specific bias.
+
+Architecture Specifications (Micro-SIMD):
+1. Datapath: A 2-lane, 4-bit architecture OR a serialized 8-bit architecture. The choice must heavily prioritize the 1000-cell area efficiency.
+2. Instruction Set Architecture (ISA): Minimalistic design. Maximum 3-bit or 4-bit opcode fed through the input pins.
+   Required Operations:
+   - Vector ADD / SUB
+   - Vector AND / OR / XOR
+   - Vector Shift (Logical Left/Right)
+3. Registers: Extremely small vector register file (e.g., 4 depth x 8-bit width) or a direct accumulator-based pipeline. Use shift registers if standard D-Flip-Flop arrays exceed the cell limit.
+
+Strict Design Rules:
+- DO NOT use direct multiplier operators (e.g., `*`). If any multiplication-like behavior is needed, implement it strictly via shift-and-add logic to prevent the logic synthesizer from exceeding the 1000-cell limit.
+- Optimize Finite State Machines (FSM). Prefer Binary encoding over One-Hot encoding to save flip-flops.
+- Implement aggressive resource sharing (e.g., reusing the same adder block for different vector lanes at different clock cycles if necessary).
+
+Deliverables Required:
+1. A single `tt_um_vpu.sv` SystemVerilog module strictly conforming to the Tiny Tapeout top-level wrapper interface names.
+2. Detailed comments in the code explaining the specific area-optimization techniques and resource-sharing methods utilized.
+3. A brief text-based resource estimation (approximated Flip-Flop count vs. Combinational logic cells).
+4. A basic testbench (`tb.sv`) to verify the correct execution of the vector instructions.

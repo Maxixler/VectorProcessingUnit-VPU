@@ -1,0 +1,65 @@
+# Tiny Tapeout project information
+project:
+  title:        "Micro-SIMD Vector Processing Unit"
+  author:       "Eren KALE"
+  discord:      ""
+  description:  "Area-optimized 8-bit VPU with 4×8-bit register file, supporting ADD/SUB, AND/OR/XOR, and shift operations within 1000-cell limit."
+  language:     "Verilog"
+  clock_hz:     0
+
+  # How many tiles your design occupies?
+  tiles: "1x1"
+
+  # How many analog pins does your project use?
+  analog_pins: 0
+  uses_3v3: false
+
+  # Your top module name must start with "tt_um_".
+  top_module:  "tt_um_vpu"
+
+  # List your project's source files here.
+  source_files:
+    - "tt_um_vpu.v"
+
+# The pinout of your project.
+pinout:
+  # Inputs
+  ui[0]: "opcode[0]"
+  ui[1]: "opcode[1]"
+  ui[2]: "opcode[2]"
+  ui[3]: "opcode[3]"
+  ui[4]: "reg_sel_a[0]"
+  ui[5]: "reg_sel_a[1]"
+  ui[6]: "reg_sel_b[0]"
+  ui[7]: "reg_sel_b[1]"
+
+  # Outputs
+  uo[0]: "result[0]"
+  uo[1]: "result[1]"
+  uo[2]: "result[2]"
+  uo[3]: "result[3]"
+  uo[4]: "result[4]"
+  uo[5]: "result[5]"
+  uo[6]: "result[6]"
+  uo[7]: "result[7]"
+
+  # Bidirectional pins
+  uio[0]: "data_out[0] / data_in[0]"
+  uio[1]: "data_out[1] / data_in[1]"
+  uio[2]: "data_out[2] / data_in[2]"
+  uio[3]: "data_out[3] / data_in[3]"
+  uio[4]: "data_out[4] / data_in[4]"
+  uio[5]: "data_out[5] / data_in[5]"
+  uio[6]: "data_out[6] / data_in[6]"
+  uio[7]: "data_out[7] / data_in[7]"
+
+  # Analog pins
+  ua[0]: ""
+  ua[1]: ""
+  ua[2]: ""
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
+
+# Do not change!
+yaml_version: 6
