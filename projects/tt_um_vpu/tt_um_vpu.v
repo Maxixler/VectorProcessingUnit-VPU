@@ -4,10 +4,10 @@
 // TinyTapeout Micro-SIMD Vector Processing Unit
 // ============================================================
 // Area-optimized design targeting <1000 standard cells
-// Architecture: Serialized 8-bit with 4×8-bit register file
+// Architecture: 8-bit with 4×8-bit register file
 //
 // AREA OPTIMIZATION TECHNIQUES:
-// 1. Binary encoding for FSM (3 states vs 8 one-hot = 5 FFs saved)
+// 1. Binary encoding for FSM (3 bits vs 8 one-hot = 5 FFs saved)
 // 2. Shared adder/subtractor (reuse same logic for both ops)
 // 3. Direct register indexing (no complex address decoder)
 // 4. Minimal control logic (combinational opcode decode)
