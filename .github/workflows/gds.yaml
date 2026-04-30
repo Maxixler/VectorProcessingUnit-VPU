@@ -111,6 +111,10 @@ jobs:
         working-directory: tt-multiplexer/ol2/tt_mux
         run: nix-shell $GITHUB_WORKSPACE/librelane/shell.nix --run "python build.py"
 
+      - name: Harden VPU
+        working-directory: projects/tt_um_vpu
+        run: nix-shell $GITHUB_WORKSPACE/librelane/shell.nix --run "python -m librelane config.json"
+
       - name: Copy macros
         run: python ./tt/configure.py --copy-macros
 
