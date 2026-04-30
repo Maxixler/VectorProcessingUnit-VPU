@@ -24,7 +24,6 @@ module tt_um_vpu (
 	input  wire       ena,		// Chip enable
 	input  wire       clk,		// Clock
 	input  wire       rst_n,	// Reset (active low)
-	inout  wire [7:0] ua,		// Analog pins (unused)
 	input  wire       VGND,		// Ground
 	input  wire       VDPWR		// Power
 );
@@ -168,6 +167,5 @@ module tt_um_vpu (
 	assign uo_out     = alu_result;			// Always show ALU result
 	assign uio_out    = uio_oe_reg ? uio_out_reg : 8'b0;
 	assign uio_oe     = {8{uio_oe_reg}};		// All bits share OE
-	assign ua         = 8'bz;				// Analog pins unused (high-impedance)
 
 endmodule
